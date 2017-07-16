@@ -10,18 +10,24 @@ var todoList = {
         });
         this.displayTodos();
     },
-    changeTodo: function(position, newValue) {
-        this.todos[position] = newValue;
+    changeTodo: function(position, todoText) {
+        this.todos[position].todoText = todoText;
         this.displayTodos();
     },
     deleteTodo: function(position) {
         this.todos.splice(position, 1);
         this.displayTodos();
+    },
+    toggleCompleted: function(position) {
+        var todo = this.todos[position];
+        todo.completed = !todo.completed;
+        this.displayTodos();
     }
 };
 
 todoList.displayTodos();
-todoList.addTodo('item4');
-todoList.changeTodo(3, "itemFour");
-todoList.deleteTodo(3);
+todoList.addTodo('item1');
+todoList.toggleCompleted(0);
+todoList.changeTodo(0, "itemOne");
+todoList.deleteTodo(0);
 
